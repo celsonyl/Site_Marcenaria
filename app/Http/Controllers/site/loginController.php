@@ -21,14 +21,11 @@ class loginController extends Controller
             {
               return redirect()->route('admin.index');
             }
-            if($user->nivel_acesso == 'aluno')
+            if($user->nivel_acesso == 'cliente')
             {
-              return redirect()->route('aluno.index');
+              return redirect()->route('site.index');
             }
-            if($user->nivel_acesso == 'professor')
-            {
-              return redirect()->route('professor.index');
-            }
+
         }
       else  {
           return view('login');
@@ -55,8 +52,12 @@ class loginController extends Controller
 
       if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
+<<<<<<< HEAD
 
         return redirect()->route('site.login');
+=======
+        return redirect()->route('site.index');
+>>>>>>> 5b6072be560fe386e0b0a5e176ce270b72b654b0
       }
       else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'admin'],$rememberMe))
       {
@@ -77,7 +78,7 @@ class loginController extends Controller
   public function sair()
   {
     Auth::logout();
-    return redirect()->route('site.login');
+    return redirect()->route('site.index');
   }
 
 

@@ -11,6 +11,7 @@ class siteController extends Controller
 {
   public function index()
   {
+
     if (Auth::check())
       {
           // The user is logged in...
@@ -20,18 +21,14 @@ class siteController extends Controller
           {
             return redirect()->route('admin.index');
           }
-          if($user->nivel_acesso == 'aluno')
-          {
-            return redirect()->route('aluno.index');
-          }
-          if($user->nivel_acesso == 'professor')
-          {
-            return redirect()->route('professor.index');
-          }
+          
       }
-    else  {
-        return view('index');
+
+          else
+          {
+            return view('index');
           }
 
-  }
+      }
+
 }
