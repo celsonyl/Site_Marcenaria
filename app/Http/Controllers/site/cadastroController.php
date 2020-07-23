@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Illuminate\Database\QueryException;
 use Auth;
+use Crypt;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Teste;
+
 
 class cadastroController extends Controller
 {
@@ -53,11 +57,26 @@ class cadastroController extends Controller
         'nivel_acesso' => $dados['nivel_acesso'],
       ]);
 
-    if($criar)
-    return redirect()->route('site.login');
 
 
+
+    if($criar){
+      $user = User::select('id')->where('email',$dados['email'])->get();
+      $key = Crypt::encrypt($dados['email']);
+
+      foreach ($user as $confirma) {
+        $dados['id'] = Crypt::encrypt($confirma['id']);
+
+
+        Mail::to($dados['email'])->send(new Teste($key,$dados));
+
+      }
+
+
+
+      return redirect()->route('site.login');
   }
+}
 
 
 

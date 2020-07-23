@@ -33,4 +33,4 @@ Route::post('/cadastro/criar',['as'=>'site.cadastro.criar','uses'=>'site\cadastr
 
 
 
-Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'aluno\alunoController@confirmarEmail']);
+Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'site\clienteController@confirmarEmail']);

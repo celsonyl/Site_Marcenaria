@@ -42,15 +42,21 @@ class loginController extends Controller
   try{
     $dados = $req->all();
 
+    $verificado = User::select('email_verified_at')->where('email',$dados['email'])->get();
+    if($verificado == null){
+    }
+
     $rememberMe = false;
 
     if(isset($req->rememberMe))
     $rememberMe = true;
 
 
+
       if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
-        return redirect()->route('cliente.index');
+
+        return redirect()->route('site.login');
       }
       else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'admin'],$rememberMe))
       {
@@ -59,7 +65,7 @@ class loginController extends Controller
       else {
         return back()->with('warning', 'Senha ou e-mail incorreto!');
       }
-      
+
     }catch(\Illuminate\Database\QueryException $ex){
       return redirect()->route('site.login')->withErrors(['active'=>'Algo deu muito errado amigo!']);
     }
