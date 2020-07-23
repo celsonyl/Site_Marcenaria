@@ -21,14 +21,11 @@ class loginController extends Controller
             {
               return redirect()->route('admin.index');
             }
-            if($user->nivel_acesso == 'aluno')
+            if($user->nivel_acesso == 'cliente')
             {
-              return redirect()->route('aluno.index');
+              return redirect()->route('site.index');
             }
-            if($user->nivel_acesso == 'professor')
-            {
-              return redirect()->route('professor.index');
-            }
+
         }
       else  {
           return view('login');
@@ -50,7 +47,7 @@ class loginController extends Controller
 
       if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
-        return redirect()->route('cliente.index');
+        return redirect()->route('site.index');
       }
       else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'admin'],$rememberMe))
       {
@@ -59,7 +56,7 @@ class loginController extends Controller
       else {
         return back()->with('warning', 'Senha ou e-mail incorreto!');
       }
-      
+
     }catch(\Illuminate\Database\QueryException $ex){
       return redirect()->route('site.login')->withErrors(['active'=>'Algo deu muito errado amigo!']);
     }
@@ -71,7 +68,7 @@ class loginController extends Controller
   public function sair()
   {
     Auth::logout();
-    return redirect()->route('site.login');
+    return redirect()->route('site.index');
   }
 
 

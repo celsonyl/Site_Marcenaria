@@ -12,6 +12,7 @@ class cadastroController extends Controller
 {
   public function index()
   {
+
     if (Auth::check())
       {
           // The user is logged in...
@@ -21,14 +22,11 @@ class cadastroController extends Controller
           {
             return redirect()->route('admin.index');
           }
-          if($user->nivel_acesso == 'aluno')
+          if($user->nivel_acesso == 'cliente')
           {
-            return redirect()->route('aluno.index');
+            return redirect()->route('site.index');
           }
-          if($user->nivel_acesso == 'professor')
-          {
-            return redirect()->route('professor.index');
-          }
+
       }
     else  {
         return view('cadastro');

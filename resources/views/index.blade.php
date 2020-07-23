@@ -1,8 +1,21 @@
 @extends('layout.site')
-@section('titulo','Login')
+@section('titulo','Home')
+
+
+
+@if (Auth::check())
+
+@section('sair','Sair')
+
+@else
 
 @section('login','Login')
 @section('cadastro','Cadastro')
+
+@endif
+
+
+
 
 @section('navbar')
 
@@ -15,7 +28,8 @@
 
 <h3>Index</h3>
 
-{{bcrypt('123')}}
+
+
 
 
 @endsection

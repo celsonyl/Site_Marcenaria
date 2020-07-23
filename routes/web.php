@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',['as'=>'site','uses'=>'site\loginController@index']);
+Route::get('/',['as'=>'site','uses'=>'site\siteController@index']);
 Route::get('/index',['as'=>'site.index','uses'=>'site\siteController@index']);
 
 Route::get('/login',['as'=>'site.login','uses'=>'site\loginController@index']);
@@ -30,7 +30,13 @@ Route::post('/resetPassword/reset',['as'=>'senha.resetSenha','uses'=>'Security\F
 Route::get('/cadastro',['as'=>'site.cadastro','uses'=>'site\cadastroController@index']);
 Route::post('/cadastro/criar',['as'=>'site.cadastro.criar','uses'=>'site\cadastroController@criar']);
 
-
-
-
 Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'aluno\alunoController@confirmarEmail']);
+
+
+
+
+Route::group(['middleware'=>'auth'],function(){
+
+Route::get('/admin',['as'=>'admin.index','uses'=>'admin\adminController@index']);
+
+});
