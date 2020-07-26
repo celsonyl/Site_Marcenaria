@@ -30,17 +30,9 @@ Route::post('/resetPassword/reset',['as'=>'senha.resetSenha','uses'=>'Security\F
 Route::get('/cadastro',['as'=>'site.cadastro','uses'=>'site\cadastroController@index']);
 Route::post('/cadastro/criar',['as'=>'site.cadastro.criar','uses'=>'site\cadastroController@criar']);
 
-Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'aluno\alunoController@confirmarEmail']);
-
-
-
-<<<<<<< HEAD
 Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'site\clienteController@confirmarEmail']);
-=======
 
 Route::group(['middleware'=>'auth'],function(){
-
 Route::get('/admin',['as'=>'admin.index','uses'=>'admin\adminController@index']);
 
 });
->>>>>>> 5b6072be560fe386e0b0a5e176ce270b72b654b0

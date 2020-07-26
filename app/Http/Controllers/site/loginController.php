@@ -39,10 +39,6 @@ class loginController extends Controller
   try{
     $dados = $req->all();
 
-    $verificado = User::select('email_verified_at')->where('email',$dados['email'])->get();
-    if($verificado == null){
-    }
-
     $rememberMe = false;
 
     if(isset($req->rememberMe))
@@ -52,12 +48,8 @@ class loginController extends Controller
 
       if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
-<<<<<<< HEAD
 
-        return redirect()->route('site.login');
-=======
         return redirect()->route('site.index');
->>>>>>> 5b6072be560fe386e0b0a5e176ce270b72b654b0
       }
       else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'admin'],$rememberMe))
       {
