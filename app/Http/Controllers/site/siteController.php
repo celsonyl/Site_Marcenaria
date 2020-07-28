@@ -21,7 +21,10 @@ class siteController extends Controller
           {
             return redirect()->route('admin.index');
           }
-          
+          else if($user->nivel_acesso == 'cliente')
+          {
+            return view('index');
+          }
       }
 
           else
@@ -29,6 +32,8 @@ class siteController extends Controller
             return view('index');
           }
 
-      }
+
+
+    }
 
 }

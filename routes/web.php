@@ -31,16 +31,14 @@ Route::get('/cadastro',['as'=>'site.cadastro','uses'=>'site\cadastroController@i
 Route::post('/cadastro/criar',['as'=>'site.cadastro.criar','uses'=>'site\cadastroController@criar']);
 
 Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'aluno\alunoController@confirmarEmail']);
-
-
-
-<<<<<<< HEAD
 Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'site\clienteController@confirmarEmail']);
-=======
+
 
 Route::group(['middleware'=>'auth'],function(){
 
 Route::get('/admin',['as'=>'admin.index','uses'=>'admin\adminController@index']);
+Route::post('/admin/cadastrarProduto',['as'=>'admin.produto.cadastrar','uses'=>'admin\produtoController@criar']);
+Route::post('/admin/apagarProduto',['as'=>'admin.produto.apagar','uses'=>'admin\produtoController@apagar']);
+Route::post('/admin/editarProduto',['as'=>'admin.produto.editar','uses'=>'admin\produtoController@editar']);
 
 });
->>>>>>> 5b6072be560fe386e0b0a5e176ce270b72b654b0
