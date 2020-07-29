@@ -35,12 +35,8 @@ Route::post('/cadastro/criar',['as'=>'site.cadastro.criar','uses'=>'site\cadastr
 
 Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'site\clienteController@confirmarEmail']);
 
-
-
-
 Route::group(['middleware'=>'auth'],function(){
-
-Route::get('/admin',['as'=>'admin.index','uses'=>'admin\adminController@index'])->middleware('verified');
+Route::get('/admin',['as'=>'admin.index','uses'=>'admin\adminController@index']);
 Route::post('/admin/cadastrarProduto',['as'=>'admin.produto.cadastrar','uses'=>'admin\produtoController@criar']);
 Route::post('/admin/apagarProduto',['as'=>'admin.produto.apagar','uses'=>'admin\produtoController@apagar']);
 Route::post('/admin/editarProduto',['as'=>'admin.produto.editar','uses'=>'admin\produtoController@editar']);
