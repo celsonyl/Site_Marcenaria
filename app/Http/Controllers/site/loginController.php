@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use Redirect;
 
 class loginController extends Controller
 {
@@ -44,19 +45,26 @@ class loginController extends Controller
     if(isset($req->rememberMe))
     $rememberMe = true;
 
+    $verifica = User::select('email_verified_at')->where('email',$dados['email'])->get();
+    if(isset($verifica)){
+      dd($verifica);
+      return redirect()->route('site.login')->withErrors(['active' =>'E-mail não verificado fei!']);
+    }
 
-
-      if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
+      else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
+
         return redirect()->route('site.index');
       }
       else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'admin'],$rememberMe))
       {
+
         return redirect()->route('admin.index');
       }
       else {
-        return back()->with('warning', 'Senha ou e-mail incorreto!');
-      }
+        return redirect()->route('site.login')->withErrors(['active']);
+
+                   }
 
     }catch(\Illuminate\Database\QueryException $ex){
       return redirect()->route('site.login')->withErrors(['active'=>'Algo deu muito errado amigo!']);

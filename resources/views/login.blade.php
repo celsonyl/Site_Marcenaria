@@ -48,6 +48,19 @@
             <span>Lembrar meus dados</span>
           </label>
         </div>
+        <br>
+        @if($errors->any())
+
+                <ul class="list-group">
+
+                    @foreach($errors->all() as $error)
+
+                    <li class="list-group-item list-group-item-danger" style="color:red;">E-mail ou senha incorretos!</li>
+
+                    @endforeach
+
+                </ul>
+                @endif
 
 
         <div style="padding-top:40px;" class="">

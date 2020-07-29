@@ -10,6 +10,7 @@ class produtoController extends Controller
 {
 
 
+
   public function criar(Request $req)
   {
     $dados = $req->all();
@@ -34,7 +35,7 @@ class produtoController extends Controller
           $dados['disponivel'] = "off";
         }
 
-        
+
 
 
 
@@ -46,7 +47,7 @@ class produtoController extends Controller
           'disponivel' => $dados['disponivel'],
         ]);
 
-
+        return redirect()->back();
       }
       else
       {
@@ -58,7 +59,6 @@ class produtoController extends Controller
 
     }
 }
-
 
   public function apagar(Request $req)
   {
