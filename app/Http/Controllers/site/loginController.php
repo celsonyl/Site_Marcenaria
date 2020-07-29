@@ -48,7 +48,6 @@ class loginController extends Controller
 
       if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
-
         return redirect()->route('site.index');
       }
       else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'admin'],$rememberMe))
