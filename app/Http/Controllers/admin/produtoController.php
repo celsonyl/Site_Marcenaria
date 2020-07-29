@@ -25,7 +25,7 @@ class produtoController extends Controller
 
       if($check)
       {
-        $dir = "img/fotos-perfil";
+        $dir = "img/fotos-produtos";
         $imagem->move($dir,$filename);
         $dados['imagem'] = $dir."/".$filename;
 
@@ -34,7 +34,7 @@ class produtoController extends Controller
           $dados['disponivel'] = "off";
         }
 
-        
+
 
 
 

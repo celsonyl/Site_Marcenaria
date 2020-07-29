@@ -11,29 +11,6 @@ class siteController extends Controller
 {
   public function index()
   {
-
-    if (Auth::check())
-      {
-          // The user is logged in...
-          $id = Auth::user()->id;
-          $user = User::find($id);
-          if($user->nivel_acesso == 'admin')
-          {
-            return redirect()->route('admin.index');
-          }
-          else if($user->nivel_acesso == 'cliente')
-          {
-            return view('index');
-          }
-      }
-
-          else
-          {
-            return view('index');
-          }
-
-
-
-    }
-
+      return view('index');
+  }
 }

@@ -21,6 +21,10 @@
 
     <!-- SweetAlert -->
     <script type="text/javascript" src="{{URL::asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
 

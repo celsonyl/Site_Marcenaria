@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Auth::routes(['verify' => true]);
+
 Route::get('/',['as'=>'site','uses'=>'site\siteController@index']);
 Route::get('/index',['as'=>'site.index','uses'=>'site\siteController@index']);
 
@@ -30,15 +33,15 @@ Route::post('/resetPassword/reset',['as'=>'senha.resetSenha','uses'=>'Security\F
 Route::get('/cadastro',['as'=>'site.cadastro','uses'=>'site\cadastroController@index']);
 Route::post('/cadastro/criar',['as'=>'site.cadastro.criar','uses'=>'site\cadastroController@criar']);
 
-Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'aluno\alunoController@confirmarEmail']);
 Route::get('/confirmarEmail/{token?}',['as'=>'site.confirmarEmail','uses'=>'site\clienteController@confirmarEmail']);
+
+
 
 
 Route::group(['middleware'=>'auth'],function(){
 
-Route::get('/admin',['as'=>'admin.index','uses'=>'admin\adminController@index']);
+Route::get('/admin',['as'=>'admin.index','uses'=>'admin\adminController@index'])->middleware('verified');
 Route::post('/admin/cadastrarProduto',['as'=>'admin.produto.cadastrar','uses'=>'admin\produtoController@criar']);
 Route::post('/admin/apagarProduto',['as'=>'admin.produto.apagar','uses'=>'admin\produtoController@apagar']);
 Route::post('/admin/editarProduto',['as'=>'admin.produto.editar','uses'=>'admin\produtoController@editar']);
-
 });

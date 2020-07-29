@@ -19,7 +19,7 @@ class loginController extends Controller
             $user = User::find($id);
             if($user->nivel_acesso == 'admin')
             {
-              return redirect()->route('admin.index');
+              return redirect()->route('site.index');
             }
             if($user->nivel_acesso == 'cliente')
             {
