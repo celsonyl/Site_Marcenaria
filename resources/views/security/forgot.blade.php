@@ -11,7 +11,7 @@
 
 @section('conteudo')
 
-  <div class="row">
+  <div class="row-center">
 
     <h3 class="center">Esqueci senha</h3>
     <h6 class="center">Coloque o e-mail cadastrado abaixo, enviaremos uma mensagem para alteração da senha</h6>
@@ -36,7 +36,7 @@
          <span class="helper-text" data-error="E-mail inválido"></span>
        </div>
 
-       <button type="submit" class="waves-effect waves-light btn indigo lighten-2 right">Enviar</button>
+       <button type="submit" class="waves-effect waves-light btn indigo lighten-2 right" style="margin-right:200px;">Enviar</button>
       </form>
 
     </div>

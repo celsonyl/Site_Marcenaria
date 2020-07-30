@@ -45,13 +45,10 @@ class loginController extends Controller
     if(isset($req->rememberMe))
     $rememberMe = true;
 
-    $verifica = User::select('email_verified_at')->where('email',$dados['email'])->get();
-    if(isset($verifica)){
-      dd($verifica);
-      return redirect()->route('site.login')->withErrors(['active' =>'E-mail não verificado fei!']);
-    }
+  
 
-      else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
+
+      if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
 
         return redirect()->route('site.index');
