@@ -41,26 +41,18 @@
           <input type="password" name="password" id="senha">
           <label for="senha">Senha</label>
         </div>
+        @if($errors->any())
+                    E-mail ou senha incorreto!
+                    <br>
 
+        @endif
         <div class="left">
           <label class="form-group ">
             <input type="checkbox" name="rememberMe"/>
-            <span>Lembrar meus dados</span>
+            <span>Lembrar meus dados<br></span>
           </label>
         </div>
-        <br>
-        @if($errors->any())
 
-                <ul class="list-group">
-
-                    @foreach($errors->all() as $error)
-
-                    <li class="list-group-item list-group-item-danger" style="color:red;">E-mail ou senha incorretos!</li>
-
-                    @endforeach
-
-                </ul>
-                @endif
 
 
         <div style="padding-top:40px;" class="">

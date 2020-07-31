@@ -49,7 +49,15 @@ class loginController extends Controller
     if(isset($req->rememberMe))
     $rememberMe = true;
 
+<<<<<<< HEAD
 
+=======
+  
+
+
+      if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
+      {
+>>>>>>> f7452a03121032f0f887b7cfc527266873bcfef2
 
       if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
