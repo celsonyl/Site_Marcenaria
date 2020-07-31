@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
-use Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class loginController extends Controller
 {
@@ -20,7 +20,7 @@ class loginController extends Controller
             $user = User::find($id);
             if($user->nivel_acesso == 'admin')
             {
-              return redirect()->route('site.index');
+              return redirect()->route('admin.index');
             }
             if($user->nivel_acesso == 'cliente')
             {
@@ -40,31 +40,29 @@ class loginController extends Controller
   try{
     $dados = $req->all();
 
+    $verificado = User::select('email_verified_at')->where('email',$dados['email'])->get();
+    if($verificado == null){
+    }
+
     $rememberMe = false;
 
     if(isset($req->rememberMe))
     $rememberMe = true;
 
-    $verifica = User::select('email_verified_at')->where('email',$dados['email'])->get();
-    if(isset($verifica)){
-      dd($verifica);
-      return redirect()->route('site.login')->withErrors(['active' =>'E-mail não verificado fei!']);
-    }
 
-      else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
+
+      if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
-
         return redirect()->route('site.index');
       }
       else if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'admin'],$rememberMe))
       {
-
-        return redirect()->route('admin.index');
+        return redirect()->route('site.index');
       }
       else {
-        return redirect()->route('site.login')->withErrors(['active']);
-
-                   }
+        Alert::error('Senha ou email incorretos!');
+        return back();
+      }
 
     }catch(\Illuminate\Database\QueryException $ex){
       return redirect()->route('site.login')->withErrors(['active'=>'Algo deu muito errado amigo!']);

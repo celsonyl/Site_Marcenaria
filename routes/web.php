@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes(['verify' => true]);
 
 Route::get('/',['as'=>'site','uses'=>'site\siteController@index']);
 Route::get('/index',['as'=>'site.index','uses'=>'site\siteController@index']);
@@ -40,4 +39,10 @@ Route::get('/admin',['as'=>'admin.index','uses'=>'admin\adminController@index'])
 Route::post('/admin/cadastrarProduto',['as'=>'admin.produto.cadastrar','uses'=>'admin\produtoController@criar']);
 Route::post('/admin/apagarProduto',['as'=>'admin.produto.apagar','uses'=>'admin\produtoController@apagar']);
 Route::post('/admin/editarProduto',['as'=>'admin.produto.editar','uses'=>'admin\produtoController@editar']);
+
+
+
+Route::get('/carrinho',['as'=>'carrinho.index','uses'=>'site\carrinhoController@index']);
+Route::get('/carrinho/adicionar',['as'=>'carrinho.adicionar','uses'=>'site\carrinhoController@adicionar']);
+Route::get('/carrinho/remover',['as'=>'carrinho.remover','uses'=>'site\carrinhoController@remover']);
 });

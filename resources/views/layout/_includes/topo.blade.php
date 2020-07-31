@@ -20,11 +20,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!-- SweetAlert -->
-    <script type="text/javascript" src="{{URL::asset('vendor/sweetalert/sweetalert.all.js')}}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    <script src="sweetalert2.all.min.js"></script>
-    <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
-    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script type="text/javascript" src='../files/bower_components/sweetalert/js/sweetalert2.all.min.js'> </script>
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href='../files/bower_components/sweetalert/css/sweetalert2.min.css' media="screen" />
+
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
 
@@ -44,6 +43,7 @@
   <body>
     <header>
 
+      @include('sweetalert::alert')
       @yield('navbar')
 
     </header>

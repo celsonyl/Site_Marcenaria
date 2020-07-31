@@ -12,6 +12,11 @@ class adminController extends Controller
   public function index()
   {
     $user = Auth::user(array('id','name','email','nivel_acesso','foto_perfil'));
+    if($user->nivel_acesso != 'admin')
+    {
+      return redirect()->route('site.index');
+    }
+    else
     return view('admin.adminTela',compact('user'));
   }
 

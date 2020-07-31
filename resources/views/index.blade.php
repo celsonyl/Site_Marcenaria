@@ -5,29 +5,27 @@
 
 @if (Auth::check())
 
-@section('sair','Sair')
+  @include('layout._includes.sidenav')
 
 @else
 
-@section('login','Login')
-@section('cadastro','Cadastro')
+  @section('login','Login')
+  @section('cadastro','Cadastro')
+
+
+  @section('navbar')
+
+    @include('layout._includes.navbar')
+
+  @endsection
 
 @endif
-
-
-
-
-@section('navbar')
-
-@include('layout._includes.navbar')
-
-@endsection
 
 @section('conteudo')
 
 
 <h3>Index</h3>
-<section>
+
 
   <div class="row">
 
@@ -53,10 +51,50 @@
           <p>Valor: {{$produto->valor}}</p>
         </div>
         <div class="card-action">
-          <a href="#">Comprar</a>
+      <!--    <a class="waves-effect waves-light btn modal-trigger" href="#{{$produto->id}}">Modal</a>   -->
+          <button class="waves-effect waves-light btn modal-trigger" onclick="modalkkk" >  Modal  </button>
         </div>
       </div>
     </div>
+
+
+
+
+
+
+    <div class="modal modal-fixed-footer" id="{{$produto->id}}">
+        <div class="modal-content">
+
+        <h4>{{$produto->nome}}</h4>
+        <p><h4>{{$produto->descricao}}</h4> </p>
+        <p><h4>{{$produto->valor}}</h4></p>
+
+      </div>
+
+      <div class="modal-footer">
+        <form action="{{ route('carrinho.adicionar')}}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="id_produto" value="{{$produto->id}}">
+
+
+            <button class="waves-effect waves-light btn indigo lighten-2">Cadastrar</button>
+            <a class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+
+
+          </form>
+
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
 
     @endforeach
 
@@ -64,8 +102,19 @@
 
   </div>
 
-</section>
+      <script>
 
+function modalkkk()
+{
+
+  Toast.fire({
+icon: 'success',
+title: 'Signed in successfully'
+})
+
+}
+
+      </script>
 
 
 
