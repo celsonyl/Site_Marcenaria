@@ -13,7 +13,7 @@ class CreateCarrinhoTable extends Migration
      */
     public function up()
     {
-        Schema::create('carrinho', function (Blueprint $table) {
+        Schema::create('carrinhos', function (Blueprint $table) {
             $table->primary(['idCliente','idProduto']);
             $table->integer('idCliente');
             $table->integer('idProduto');

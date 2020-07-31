@@ -24,7 +24,7 @@
 @section('conteudo')
 
 
-
+<!--
 
 
 <div class="jumbotron">
@@ -51,40 +51,13 @@ Hoje, o faturamento anual da empresa – que não está mais sob o comando da fa
     <p class="card-text">Last updated 3 mins ago</p>
   </div>
 </div>
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="https://images.madeiramadeira.com.br/product/images/15550326-kit-6-cadeiras-minera-madeira-macica-de-demolicao-peroba-rosa-moveis-decorakit6cmd-1104-1-600x200.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Cadeira Gamer.</h5>
-    <p class="card-text">Perfeita para mesas de escritório ou home office. Além de estilo, a Uni Me garante a postura correta que beneficia a circulação sanguínea do corpo.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Modelo:5G7X</li>
-    <li class="list-group-item">Preço: 500R$</li>
-  </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Comprar</a>
-    <a href="#" class="card-link">Mais Detalhes</a>
-  </div>
 
 
 
+-->
 
-
-
-
-
-
-<<<<<<< HEAD
 <h3>Index</h3>
-
-
   <div class="row">
-
-
-    <!-- Fazer foreach aqui!-->
-    <!-- - - INICIO - - -->
-
-
     @foreach ($produtos as $produto)
 
 
@@ -102,8 +75,7 @@ Hoje, o faturamento anual da empresa – que não está mais sob o comando da fa
           <p>Valor: {{$produto->valor}}</p>
         </div>
         <div class="card-action">
-      <!--    <a class="waves-effect waves-light btn modal-trigger" href="#{{$produto->id}}">Modal</a>   -->
-          <button class="waves-effect waves-light btn modal-trigger" onclick="modalkkk" >  Modal  </button>
+            <a class="waves-effect waves-light btn modal-trigger" href="#{{$produto->id}}">Modal</a>
         </div>
       </div>
     </div>
@@ -116,59 +88,41 @@ Hoje, o faturamento anual da empresa – que não está mais sob o comando da fa
     <div class="modal modal-fixed-footer" id="{{$produto->id}}">
         <div class="modal-content">
 
-        <h4>{{$produto->nome}}</h4>
-        <p><h4>{{$produto->descricao}}</h4> </p>
-        <p><h4>{{$produto->valor}}</h4></p>
+        <h4>Produto: {{$produto->nome}}</h4>
+        <p><h4>Valor: {{$produto->valor}}</h4></p>
+        <form action="{{ route('carrinho.adicionar')}}" method="post">
+            {{ csrf_field() }}
+            <input type="hidden" name="idProduto" value="{{$produto->id}}">
+
+            <div class="input-field">
+              <input type="number" step="1" min="1" name="quantidade" id="quantidade">
+              <label for="quantidade">Quantidade</label>
+            </div>
+
+            id:{{$produto->id}}
 
       </div>
 
       <div class="modal-footer">
-        <form action="{{ route('carrinho.adicionar')}}" method="post">
-            {{ csrf_field() }}
-            <input type="hidden" name="id_produto" value="{{$produto->id}}">
 
-
-            <button class="waves-effect waves-light btn indigo lighten-2">Cadastrar</button>
+        <?php if(Auth::check())
+        { ?>
+            <button class="waves-effect waves-light btn indigo lighten-2">Encomendar</button>
             <a class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+      <?php   }
+        else { ?>
+          <a>Logue para realizar uma encomenda! </a>
+          <a class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+        <?php } ?>
+
+
+            </div>
 
 
           </form>
-
-
-
-
       </div>
     </div>
-
-
-
-
-
-
-
-
     @endforeach
-
-
 </div>
 
-
-      <script>
-
-function modalkkk()
-{
-
-  Toast.fire({
-icon: 'success',
-title: 'Signed in successfully'
-})
-
-}
-
-      </script>
-
-
-
 @endsection
-<script src="{{ asset('site/jquery.js') }}"></script>
-<script src="{{ asset('site/bootstrap.js') }}"></script>
