@@ -44,7 +44,7 @@
           <th>Foto</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody>        
         @foreach($produtos as $produto)
           <tr>
             <td>{{ $produto->id }}</td>

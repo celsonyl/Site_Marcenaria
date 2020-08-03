@@ -28,7 +28,7 @@
 
 
 <div class="jumbotron">
-  <h1 class="display-4">O sonho Imaginarium</h1>
+  <h1 class="display-4">O sonho ImaginariumAA</h1>
   <p class="lead">Você com certeza ouviu falar ou até ganhou presentes da Imaginarium. Também é provável que você não tenha ideia de como a empresa começou no início dos anos 1990: um casal formado por uma arquiteta e um médico.
 
 A dupla decidiu passar mais tempo com as filhas pequenas e, para isso, começou a produzir presentes de Natal em casa. Depois, os produtos começaram a ser vendidos na vizinhança. A demanda obrigou a profissionalização da produção e, em pouco tempo, os produtos foram para grandes lojas.
@@ -74,7 +74,6 @@ Hoje, o faturamento anual da empresa – que não está mais sob o comando da fa
 
 
 
-<<<<<<< HEAD
 <h3>Index</h3>
 
 
