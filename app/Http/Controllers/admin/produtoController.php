@@ -77,7 +77,7 @@ public function editar($id)
         $imagem = $req->file('foto');
         $filename = $imagem->getClientOriginalName();
         $extension = $imagem->getClientOriginalExtension();
-        $check=in_array($extension,$allowedfileExtension);
+        $check= in_array($extension,$allowedfileExtension);
 
 
         if($check)
@@ -106,12 +106,6 @@ public function editar($id)
       dd($dados);
       }
   }
-
-
-
-
-
-
 
   public function apagar($id)
   {
