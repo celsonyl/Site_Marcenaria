@@ -91,7 +91,14 @@ public function editar($id)
             $dados['disponivel'] = "off";
           }
 
-          Produto::find($id)->update($dados);
+
+          Produto::where('id',$id)->update([
+            'nome' => $dados['nome'],
+            'descricao' => $dados['descricao'],
+            'valor' => $dados['valor'],
+            'foto' =>  $dados['imagem'],
+            'disponivel' => $dados['disponivel'],
+          ]);
           return redirect()->route('admin.produto.index');
 
     }  else

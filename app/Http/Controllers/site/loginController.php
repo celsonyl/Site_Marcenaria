@@ -50,13 +50,6 @@ class loginController extends Controller
     $rememberMe = true;
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> 818f40c07281d3ffc3c6cd934069e4b1d37dd736
 
       if(Auth::attempt(['email'=>$dados['email'],'password'=>$dados['password'],'nivel_acesso'=>'cliente'],$rememberMe))
       {
