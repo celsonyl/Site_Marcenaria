@@ -45,6 +45,6 @@ Route::get('/admin/indexProduto',['as'=>'admin.produto.index','uses'=>'admin\pro
 
 
 Route::get('/carrinho',['as'=>'carrinho.index','uses'=>'site\carrinhoController@index']);
-Route::get('/carrinho/adicionar',['as'=>'carrinho.adicionar','uses'=>'site\carrinhoController@adicionar']);
-Route::get('/carrinho/remover',['as'=>'carrinho.remover','uses'=>'site\carrinhoController@remover']);
+Route::post('/carrinho/adicionar',['as'=>'carrinho.adicionar','uses'=>'site\carrinhoController@adicionar']);
+Route::post('/carrinho/remover',['as'=>'carrinho.remover','uses'=>'site\carrinhoController@remover']);
 });
