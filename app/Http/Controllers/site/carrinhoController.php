@@ -22,8 +22,15 @@ class carrinhoController extends Controller
 
             if($user->nivel_acesso == 'cliente')
             {
-              Alert::error('Você não compra produtos!');
-              return redirect()->route('site.index');
+              $itens_carrinho = Carrinho::select('*')->where('idCliente',$id)->get();
+              /*
+              if(empty($itens_carrinho))
+              {
+                echo cu;
+                dd($itens_carrinho);
+              }
+              */
+              return view('cliente.carrinho',compact('itens_carrinho'));
             }
             else
             {
@@ -47,6 +54,9 @@ class carrinhoController extends Controller
     {
       $dados = $req->all();
 
+
+      try{
+        
       $id = Auth::user()->id;
       $user = User::find($id);
       if (Auth::check())
@@ -64,7 +74,7 @@ class carrinhoController extends Controller
         }
 
         $cria_produto = Carrinho::create([
-          'idCliente' => Auth::user()->id,
+          'idCliente' => $id,
           'idProduto' => $dados['idProduto'],
           'quantidade' => $dados['quantidade'],
         ]);
@@ -80,12 +90,27 @@ class carrinhoController extends Controller
         Alert::error('É preciso estar logado para efetuar encomendas!');
         return back();
       }
+    
+    
+    
+    }
+    catch(\Illuminate\Database\QueryException $e)
+    {
+      Alert::error('Essse produto já está em seu carrinho!');
+        return back();
+    }
 
     }
 
 
-    public function remover()
+    public function remover(Request $req)
     {
-
+      $dados = $req->all();
+      $deleta = Carrinho::where('idCliente',Auth::user()->id)->where('idProduto',$dados['idProduto'])->delete();
+      if($deleta)
+      {
+        Alert::error('Produto apagado do carrinho com sucesso!');
+        return back();
+      }
     }
 }
