@@ -98,13 +98,13 @@ $(function(){
 
 
       Swal.fire({
-        title: 'Você realmente deseja deletar esse produto?',
+        title: 'Você realmente deseja deletar esse produto do carrinho?',
         text: false,
         icon: 'warning',
         showCancelButton: true,
         cancelButtonText: 'Não',
-        confirmButtonColor: '#7986cb',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#00de07',
+        cancelButtonColor: '#ff1900',
         confirmButtonText: 'Sim'
       }).then((result) => {
         

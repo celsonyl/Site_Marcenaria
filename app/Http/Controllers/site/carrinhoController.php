@@ -23,13 +23,6 @@ class carrinhoController extends Controller
             if($user->nivel_acesso == 'cliente')
             {
               $itens_carrinho = Carrinho::select('*')->where('idCliente',$id)->get();
-              /*
-              if(empty($itens_carrinho))
-              {
-                echo cu;
-                dd($itens_carrinho);
-              }
-              */
               return view('cliente.carrinho',compact('itens_carrinho'));
             }
             else

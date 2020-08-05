@@ -5,6 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Produto;
+use RealRashid\SweetAlert\Facades\Alert;
+
 
 class produtoController extends Controller
 {
@@ -20,7 +22,8 @@ public function index(Request $req){
   {
     $dados = $req->all();
 
-    if($req->hasFile('imagem')){
+    if($req->hasFile('imagem'))
+    {
 
       $allowedfileExtension=['jpg','png'];
       $imagem = $req->file('imagem');
@@ -47,13 +50,20 @@ public function index(Request $req){
           'disponivel' => $dados['disponivel'],
         ]);
 
+        Alert::success('Produto cadastrado com sucesso!');
         return redirect()->back();
       }
       else
       {
-        // ARQUIVO NAO É .PNG OU .JPG ------- NÃO É FOTO
+        Alert::error('Apenas arquivos .png e .jpg!');
+        return redirect()->back();
       }
 
+    }
+    else
+    {
+      Alert::error('Insira a foto!');
+        return redirect()->back();
     }
 }
 
@@ -71,7 +81,8 @@ public function editar($id)
       $dados = $req->all();
 
 
-      if($req->hasFile('foto')){
+      if($req->hasFile('foto'))
+      {
 
         $allowedfileExtension=['jpg','png'];
         $imagem = $req->file('foto');
@@ -99,18 +110,22 @@ public function editar($id)
             'foto' =>  $dados['imagem'],
             'disponivel' => $dados['disponivel'],
           ]);
-          return redirect()->route('admin.produto.index');
+
+          Alert::success('Produto atualizado com sucesso!');
+          return redirect()->back();
 
     }  else
       {
-      dd($dados);
+        Alert::error('Insira a foto!');
+        return redirect()->back();
       }
   }
 
   public function apagar($id)
   {
     Produto::find($id)->delete();
-    return redirect()->back();
+    Alert::success('Produto deletado com sucesso!');
+        return redirect()->back();
   }
 
 }
