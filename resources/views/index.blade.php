@@ -22,14 +22,12 @@
 @section('conteudo')
 
 
-
 <div class="carousel carousel-slider">
-  <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1" style="height: 800px;"></a>
-</div>
-
-
+  <a class="carousel-item" href="#one!"><img src="{{asset('img/fotos-tema/indexFoto.jpg')}}" style="height: 800px;"></a>
+</div><div id="texto"><h1>Móveis Planejados<h1></div><div id="texto2"><h6>QUALQUER CÔMODO PODE SER PROJETADO PARA SER O MELHOR DA CASA
+  <h6></div><div style="width: 100%;">
   <center style="font-family:sans-serif;font-size:400;"><h4>NOSSOS PRODUTOS</h4></center>
-
+  </div>
   <div class="row">
     @foreach ($produtos as $produto)
 
@@ -53,7 +51,7 @@
           <form action="{{ route('carrinho.adicionar') }}" method="post" id="{{$produto->id}}">
             {{ csrf_field() }}
             <input type="hidden" name="idProduto" value="{{$produto->id}}">
-            <button class="waves-effect waves-light btn red">Encomendar</button>
+            <button class="waves-effect waves-light btn grey darken-3">Encomendar</button>
           </form>
         </div>
       </div>

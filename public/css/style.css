@@ -1,16 +1,33 @@
 html, body{
-  background-image: linear-gradient(0deg, #E6E6F5, white);
+  background-image: linear-gradient(0deg, #f2eddc, #f2eddc);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 .nav-wrapper-color{
-  background-image: linear-gradient(-90deg, #261d05, #423002);
+  background-image: linear-gradient(-160deg, #615d55, #5c4c2e);
 }
 
 #foter{
-  background-image: linear-gradient(-180deg, #7c583d, #614920);
+  background-image: linear-gradient(-180deg, #151716, #222423);
 }
+#texto {
+  position: absolute;
+  margin-top: -200px;
+  margin-left: 900px;
+  color: white;
+  font-size: large;
+  text-decoration: underline;
+  }
+  #texto2 {
+    position: absolute;
+    margin-top: -80px;
+    margin-left: 930px;
+    color: blue;
+    font-family: sans-serif;
+  
+    }
+
 
 #cards{
   max-width: 100%;
