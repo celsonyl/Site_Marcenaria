@@ -20,7 +20,7 @@
 
           <div class="row">
             <form class="form-login" action="{{ route('site.cadastro.criar')}}" method="post">
-              <h3>Cadastro</h3>
+              <h3 style="font-family:sans-serif;">Cadastro</h3>
 
               {{ csrf_field() }}
 
@@ -51,8 +51,8 @@
               <input type="hidden" name="nivel_acesso" value="cliente">
 
               <div class="padding-top-buttom">
-                <a href="{{ route('site.login') }}" class="waves-effect waves-light btn indigo lighten-2">Tenho uma conta</a>
-                <button class="waves-effect waves-light btn indigo lighten-2 right">Criar</button>
+                <a href="{{ route('site.login') }}" class="waves-effect waves-light btn indigo  grey darken-3">Tenho uma conta</a>
+                <button class="waves-effect waves-light btn indigo  grey darken-3 right">Criar</button>
               </div>
             </form>
           </div>

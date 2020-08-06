@@ -11,7 +11,7 @@
 
       <div class="col s0 m5 l5 login-fundo-logo">
 
-        <img style="height: 25vw;" src="https://images-platform.99static.com/hLg63ujt6c9Mw_0_l5yAQGrNIIg=/437x87:1623x1273/500x500/top/smart/99designs-contests-attachments/67/67981/attachment_67981533" alt="logo">
+        <img style="height: 25vw;" src="https://gamepedia.cursecdn.com/minecraft_gamepedia/9/9c/Oak_Wood_Axis_Y_JE5_BE2.png?version=c47541e55974188b13fac76ab558f37b" alt="logo">
 
       </div>
 
@@ -27,7 +27,7 @@
 
 
 
-        <h3>Entrar</h3>
+        <h3 style="font-family:sans-serif;">Entrar</h3>
 
         {{ csrf_field() }}
 
@@ -58,10 +58,10 @@
         <div style="padding-top:40px;" class="">
 
           <label class="label-agree-term left">
-            <a class="font-esqueci-senha" href="{{ url('/forgotPassword') }}"><h6>Esqueceu a senha?</h6></a>
+            <a class="font-esqueci-senha" href="{{ url('/forgotPassword') }}" style="color: grey darken-3;text-decoration: underline;font-family:sans-serif;"><h6>Esqueceu a senha?</h6></a>
           </label>
 
-          <button class="waves-effect waves-light btn indigo lighten-2 right">Entrar</button>
+          <button class="waves-effect waves-light btn indigo  grey darken-3 right">Entrar</button>
 
         </div>
 

@@ -36,7 +36,7 @@
          <span class="helper-text" data-error="E-mail inválido"></span>
        </div>
 
-       <button type="submit" class="waves-effect waves-light btn indigo lighten-2 right" style="margin-right:200px;">Enviar</button>
+       <button type="submit" class="waves-effect waves-light btn indigo grey  grey darken-3 right" style="margin-right:200px;">Enviar</button>
       </form>
 
     </div>
