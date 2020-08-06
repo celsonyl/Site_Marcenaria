@@ -42,5 +42,35 @@
     </div>
 
   </div>
+  <div style="margin-top: 419px;">
+  <footer class="page-footer" id="foter">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Quem somos</h5>
+          <p class="grey-text text-lighten-4">"O bom design reside de alguma maneira na capacidade de instigar um sentido de familaridade instantânea"</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Endereço</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Rua Anita Garibaldi nº55</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Leme - São Paulo - Brasil</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">CEP: 13616-369</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2014 Copyright Text
+      <a class="grey-text text-lighten-4 right" href="#!"></a>
+      </div>
+    </div>
+  </footer>
+  </div>
+
+  
 
 @endsection
+
+    

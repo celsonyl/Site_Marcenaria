@@ -11,7 +11,7 @@
 
       <div class="col s0 m5 l5 login-fundo-logo">
 
-        <img style="height: 25vw;" src="img/fotos-logo/logo-escrita-white.png" alt="logo">
+        <img style="height: 25vw;" src="https://images-platform.99static.com/hLg63ujt6c9Mw_0_l5yAQGrNIIg=/437x87:1623x1273/500x500/top/smart/99designs-contests-attachments/67/67981/attachment_67981533" alt="logo">
 
       </div>
 

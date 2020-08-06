@@ -13,11 +13,9 @@
   @section('cadastro','Cadastro')
 
 
-  @section('navbar')
 
     @include('layout._includes.navbar')
 
-  @endsection
 
 @endif
 
@@ -25,19 +23,21 @@
 
 
 
+<div class="carousel carousel-slider">
+  <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/800/400/food/1" style="height: 800px;"></a>
+</div>
 
 
+  <center style="font-family:sans-serif;font-size:400;"><h4>NOSSOS PRODUTOS</h4></center>
 
-
-<h3>Index</h3>
   <div class="row">
     @foreach ($produtos as $produto)
 
 
-    <div class="col s12 m6 l4">
+    <div class="card small" style="float:left;margin-left:20px; margin-top:30px;">
       <div class="card">
         <div class="card-image">
-          <img src="{{$produto->foto}}">
+          <img src="{{$produto->foto}}" id="cards">
           <span class="card-title">Nome: {{$produto->nome}}</span>
         </div>
         <div class="card-content">
@@ -48,24 +48,22 @@
           <p>Valor: {{$produto->valor}}</p>
         </div>
         <div class="card-action">
-          <!--  <a class="waves-effect waves-light btn modal-trigger" href="#{{$produto->id}}">Modal</a> -->
             
 
           <form action="{{ route('carrinho.adicionar') }}" method="post" id="{{$produto->id}}">
             {{ csrf_field() }}
             <input type="hidden" name="idProduto" value="{{$produto->id}}">
-            <!-- <input type="hidden" name="quantidade" id="quantidade" value=""> -->
-
-
             <button class="waves-effect waves-light btn red">Encomendar</button>
-
           </form>
         </div>
       </div>
     </div>
 
 
+
+    
   <script>
+
 
 
 $(function(){
@@ -145,10 +143,45 @@ $(function(){
 
   </script>
 
-
-  
     @endforeach
     </div>
 
+<script>
+  var instance = M.Carousel.init({
+    fullWidth: true
+  });
+
+  // Or with jQuery
+
+  $('.carousel.carousel-slider').carousel({
+    fullWidth: true
+  });
+
+  </script>
+
+  <footer class="page-footer" id="foter">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Quem somos</h5>
+        <p class="grey-text text-lighten-4">"O bom design reside de alguma maneira na capacidade de instigar um sentido de familaridade instantânea"</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Endereço</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Rua Anita Garibaldi nº55</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Leme - São Paulo - Brasil</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">CEP: 13616-369</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2014 Copyright Text
+    <a class="grey-text text-lighten-4 right" href="#!"></a>
+    </div>
+  </div>
+</footer>
 
 @endsection
