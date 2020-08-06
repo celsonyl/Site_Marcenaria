@@ -1,8 +1,6 @@
 @extends('layout.site')
 @section('titulo','Carrinho')
 
-
-
 @if (Auth::check())
 
   @include('layout._includes.sidenav')
@@ -70,6 +68,20 @@
 
     @endforeach
 
+    <form action="{{ route('encomenda.adicionar') }}" method="post" name="form_encomendar">
+      {{ csrf_field() }}
+
+    <input type="hidden" name="idCliente" value="{{Auth::user()->id}}">
+
+    <button id="btn-deletar" class="waves-effect waves-light btn green">Encomendar</button>
+
+
+    </form>
+
+
+
+
+
 
 @else
 
@@ -112,13 +124,41 @@ $(function(){
               this.submit();
 
       });
-      });
-    });
+   });
+});
 
+
+
+
+
+$(function(){
+    $('form[name="form_encomendar"]').submit(function(event){
+      event.preventDefault();
+
+
+      Swal.fire({
+        title: 'Como será feita a entrega?',
+        text: false,
+        input: 'radio',
+        inputOptions: {
+          1: "Vou receber a encomenda em casa",
+          2: "Vou buscar a encomenda"
+        },
+        showCancelButton: true,
+        cancelButtonText: 'Não',
+        confirmButtonColor: '#00de07',
+        cancelButtonColor: '#ff1900',
+        confirmButtonText: 'Sim'
+      }).then((result) => {
+        
+            if (result.value) 
+              this.submit();
+
+      });
+   });
+});
 
 </script>
-
-
 
 
 

@@ -28,7 +28,7 @@
 
 
     @if(Auth::user()->nivel_acesso == 'cliente')
-    <li class="@yield('config-active')"><a href="{{ route('carrinho.index')}}"><i class="material-icons">shopping_cart</i>Carrinho</a></li>
+    <li class="@yield('carrinho-active')"><a href="{{ route('carrinho.index')}}"><i class="material-icons">shopping_cart</i>Carrinho</a></li>
     @endif
 
     <li><a href="{{ route('login.sair') }}"><i class="material-icons">exit_to_app</i>Sair</a></li>
