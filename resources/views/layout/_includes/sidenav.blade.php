@@ -5,8 +5,9 @@
 
     <a href="{{ route('site.index') }}" class="brand-logo">LOGO</a>
 
+      
       <a href="#" data-target="slide-out" class="sidenav-trigger right" style="display:block">
-        Perfil
+      <i class="material-icons">menu</i>
       </a>
 
 

@@ -285,3 +285,10 @@ position: relative;
     right: 30px;
 
 }
+
+
+
+.swal2-radio {
+  display: grid !important;
+}
+

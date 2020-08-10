@@ -26,7 +26,7 @@
 
 
 
-@if(count($itens_carrinho) != 0)
+@if(count($itens_encomendas) != 0)
   
   <div class="row">
     <table>
@@ -37,14 +37,15 @@
           <th>Valor</th>
           <th>Quantidade</th>
           <th>Valor Total</th>
+          <th>Situação</th>
         </tr>
       </thead>
-    @foreach ($itens_carrinho as $produto)
+    @foreach ($itens_encomendas as $encomenda)
     <?php
-    $produtoskkk = App\Carrinho::join('produtos','carrinhos.idProduto','=','produtos.id')
+    $produtoskkk = App\Encomenda::join('produtos','encomendas.idProduto','=','produtos.id')
                   ->select('produtos.*')
-                  ->where('carrinhos.idCliente',Auth::user()->id)
-                  ->where('carrinhos.idProduto',$produto->idProduto)
+                  ->where('encomendas.idCliente',Auth::user()->id)
+                  ->where('encomendas.idProduto',$encomenda->idProduto)
                   ->first();
     ?>
       <tbody>        
@@ -52,16 +53,9 @@
             <td> {{$produtoskkk->nome}} </td>
             <td> {{$produtoskkk->descricao}} </td>
             <td> {{$produtoskkk->valor}} </td>
-            <td> {{$produto->quantidade}} </td>
-            <td> {{($produtoskkk->valor)*($produto->quantidade)}} </td>
-            <td>
-            <form action="{{ route('carrinho.remover') }}" method="post" name="form_deletar">
-            {{ csrf_field() }}
-            <input type="hidden" name="idProduto" value="{{$produtoskkk->id}}">
-
-            <button id="btn-deletar" class="waves-effect waves-light btn red">Deletar</button>
-            </form>
-            </td>
+            <td> {{$encomenda->quantidade}} </td>
+            <td> {{($produtoskkk->valor)*($encomenda->quantidade)}} </td>
+            <td> {{$encomenda->situacao }}</td>
           </tr>
 
     @endforeach
@@ -72,15 +66,7 @@
 
 
 
-    <form action="{{ route('encomenda.adicionar') }}" method="post" name="form_encomendar" id="form_encomendar">
-      {{ csrf_field() }}
-
-    <input type="hidden" name="idCliente" value="{{Auth::user()->id}}">
-
-    <button id="btn-deletar" class="waves-effect waves-light btn green">Encomendar</button>
-
-
-    </form>
+   
 
 
 
@@ -90,7 +76,7 @@
 @else
 
   <br>
-  <div align="center"><h2>Você não possui produtos no carrinho!</h2></div>
+  <div align="center"><h2>Você não possui encomendas!</h2></div>
 
 @endif
 
