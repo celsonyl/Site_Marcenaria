@@ -29,7 +29,7 @@
         {{ session()->get('message') }}
     </div>
 @endif
-    <h1><center>EDITAR PRODUTO</center></h1>
+    <h1><center style="font-family: sans-serif;">EDITAR PRODUTO</center></h1>
 
     <div class="container">
   <div class="row">
@@ -54,8 +54,8 @@
             <td>{{ $produto->disponivel }}</td>
           <td><img height="60" src="{{asset($produto->foto)}}"/></td>
             <td>
-              <a class="btn deep-orange" href="{{ route('admin.produto.editar',$produto->id) }}">Editar</a>
-              <a class="btn red" href="{{ route('admin.produto.apagar',$produto->id) }}">Deletar</a>
+              <a class="btn" href="{{ route('admin.produto.editar',$produto->id) }}" style="margin-top: 5px;background-color:#786f63">Editar</a>
+              <a class="btn red" href="{{ route('admin.produto.apagar',$produto->id) }}" style="margin-top: 5px;">Deletar</a>
             </td>
           </tr>
         @endforeach

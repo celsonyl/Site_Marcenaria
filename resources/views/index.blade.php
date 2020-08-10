@@ -73,7 +73,11 @@ $(function(){
 
         Swal.fire({
       title: '<?php echo $produto->nome ?>',
+      text:'Quantidade',
       input: 'number',
+      customClass: {
+        input: 'my-number'
+      },
       inputAttributes: {min:1,step:1},
       showCancelButton: true,
       cancelButtonText: 'Cancelar',
@@ -91,7 +95,7 @@ $(function(){
             text: false,
             showCancelButton: true,
             cancelButtonText: 'Não',
-            confirmButtonColor: '#00de07',
+            confirmButtonColor: '#786f63',
             cancelButtonColor: '#ff1900',
             confirmButtonText: 'Sim',
           }).then((encomendar) => {
@@ -176,7 +180,7 @@ $(function(){
   </div>
   <div class="footer-copyright">
     <div class="container">
-    © 2014 Copyright Text
+    © 2020 Copyright Text
     <a class="grey-text text-lighten-4 right" href="#!"></a>
     </div>
   </div>

@@ -3,7 +3,7 @@
 
 <nav>
   <div class="nav-wrapper nav-wrapper-color">
-    <a href="{{ route('site.index') }}" class="brand-logo"> <img src="img/fotos-logo/mineNav.png" alt="logo"> </a>
+    <a href="{{ route('site.index') }}" class="brand-logo">LOGO</a>
     <a href="#" data-target="mobile" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li class="@yield('login-active') right"><a href="{{ route('site.login') }}">@yield('login')</a></li>

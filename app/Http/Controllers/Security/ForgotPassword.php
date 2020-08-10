@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Sentinel;
 use Reminder;
 use App\User;
+use RealRashid\SweetAlert\Facades\Alert;
 use Mail;
 use Crypt;
 
@@ -27,7 +28,8 @@ class ForgotPassword extends Controller
 
         $user = Sentinel::findById($user->id);
         $this->sendEmail($user);
-        return redirect()->back()->with(['sucess'=>'O link para resetar a senha foi enviado para o seu email.']);
+        Alert::success('Enviamos um link para resetar sua senha no Email!!!');
+        return redirect()->back();
         }
     }
 

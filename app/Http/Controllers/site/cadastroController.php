@@ -9,6 +9,7 @@ use App\Illuminate\Database\QueryException;
 use Auth;
 use Crypt;
 use Illuminate\Support\Facades\Mail;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Mail\Teste;
 
 
@@ -67,6 +68,10 @@ class cadastroController extends Controller
 
 
         Mail::to($dados['email'])->send(new Teste($key,$dados));
+        Alert::success('Conta criada com sucesso!
+        Confirme seu Email para poder entrar em sua conta');
+
+        
 
       }
 

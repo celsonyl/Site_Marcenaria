@@ -35,6 +35,11 @@ html, body{
   object-fit: contain;
 }
 
+.my-number {
+  display: inline-flex !important;
+  flex-direction: column;
+  align-items: flex-start !important;
+}
 
 .brand-logo img {
   height: 55px;
