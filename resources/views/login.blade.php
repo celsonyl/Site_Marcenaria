@@ -60,11 +60,20 @@
           <label class="label-agree-term left">
             <a class="font-esqueci-senha" href="{{ url('/forgotPassword') }}" style="color: grey darken-3;text-decoration: underline;font-family:sans-serif;"><h6>Esqueceu a senha?</h6></a>
           </label>
+          
+
 
           <button class="waves-effect waves-light btn indigo  grey darken-3 right">Entrar</button>
 
         </div>
 
+        <div style="padding-top:40px;" class="">
+          <label class="label-agree-term left">
+            <a class="font-esqueci-senha" href="{{ route('site.cadastro') }}" style="color: grey darken-3;text-decoration: underline;font-family:sans-serif;"><h6>Criar uma conta</h6></a>
+          </label>
+
+
+        </div>
       </form>
     </div>
   </div>

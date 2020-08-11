@@ -11,6 +11,8 @@ use Crypt;
 use Illuminate\Support\Facades\Mail;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Mail\Teste;
+use Exception;
+
 
 
 class cadastroController extends Controller
@@ -45,6 +47,8 @@ class cadastroController extends Controller
 
   public function criar(Request $req)
   {
+    try{
+    
     $dados = $req->all();
 
 
@@ -55,9 +59,6 @@ class cadastroController extends Controller
         'password' => bcrypt($dados['password']),
         'nivel_acesso' => $dados['nivel_acesso'],
       ]);
-
-
-
 
     if($criar){
       $user = User::select('id')->where('email',$dados['email'])->get();
@@ -70,17 +71,16 @@ class cadastroController extends Controller
         Mail::to($dados['email'])->send(new Teste($key,$dados));
         Alert::success('Conta criada com sucesso!
         Confirme seu Email para poder entrar em sua conta');
-
-        
-
       }
-
-
-
       return redirect()->route('site.login');
+    }
+  }catch(Exception $e){
+      Alert::error('E-mail inválido ou já existente!');
+      return redirect()->back();
+    }
   }
 }
 
 
 
-}
+
