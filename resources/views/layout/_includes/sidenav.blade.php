@@ -23,7 +23,7 @@
     <li class="@yield('home-active')"><a href="{{ route('site.index') }}"><i class="material-icons">home</i>Home</a></li>
     <li><div class="divider"></div></li>
     @if(Auth::user()->nivel_acesso == 'admin')
-    <li class="@yield('config-active')"><a href="{{ route('admin.index')}}"><i class="material-icons">settings</i>Tela Admin</a></li>
+    <li class="@yield('config-active')"><a href="{{ route('admin.index')}}"><i class="material-icons">person</i>Tela Admin</a></li>
     <li class="@yield('config-active')"><a href="{{ route('admin.produto.index')}}"><i class="material-icons">settings</i>Configurar Produto</a></li>
     @endif
 

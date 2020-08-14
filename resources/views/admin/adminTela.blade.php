@@ -14,7 +14,6 @@
 
 @section('conteudo')
 
-<h3>Olá {{Auth::user()->name}}!</h3>
 
 @if($errors->any())
 <div class="alert alert-danger">

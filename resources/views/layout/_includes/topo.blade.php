@@ -37,7 +37,7 @@
     <link rel="android-chrome-96x96" type="image/png" sizes="512x512" href="{{asset('img/favicon/favicon-96x96.png')}}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('img/favicon/apple-touch-icon.png')}}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('img/favicon/minezada.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('img/favicon/minezada.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="LOGO">
 
      
     <meta charset="utf-8">

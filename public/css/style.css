@@ -9,6 +9,10 @@ html, body{
 }
 
 #foter{
+  margin-top: 20px;;
+  position: absolute;
+    bottom: auto;
+    width:100%;
   background-image: linear-gradient(-180deg, #151716, #222423);
 }
 #texto {
