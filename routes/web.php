@@ -52,6 +52,7 @@ Route::post('/carrinho/remover',['as'=>'carrinho.remover','uses'=>'site\carrinho
 Route::get('/encomendas',['as'=>'encomenda.index','uses'=>'site\encomendaController@index']);
 Route::post('/encomendas/adicionar',['as'=>'encomenda.adicionar','uses'=>'site\encomendaController@adicionar']);
 Route::post('/encomendas/remover',['as'=>'encomenda.remover','uses'=>'site\encomendaController@remover']);
+Route::post('/encomendas/atualizar',['as'=>'encomenda.atualizar','uses'=>'site\encomendaController@atualizar']);
 
 
 });

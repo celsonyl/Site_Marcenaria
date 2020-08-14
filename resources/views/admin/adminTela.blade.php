@@ -32,61 +32,79 @@
 @endif
 
 
-      <h3><center style="font-family: sans-serif;">Cadastro de Produto</center></h3>
-      <div class="container">
-        <div class="row">
 
 
-        <form action="{{ route('admin.produto.cadastrar')}}" method="post" enctype="multipart/form-data">
 
-          {{ csrf_field() }}
-
-          <div class="input-field">
-            <input type="text" name="nome" id="nome">
-            <label for="nome" style="font-family: sans-serif;">Nome</label>
-          </div>
+<div class="container">
 
 
-          <div class="input-field">
-            <input type="text" name="descricao" id="descricao">
-            <label for="descricao"  style="font-family: sans-serif;">Descrição</label>
-          </div>
+<div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Valor</th>
+          <th>Valor Total</th>
+          <th></th>
+
+        </tr>
+      </thead>
+
+@foreach($encomendas as $encomenda)
+<?php
+
+$cliente = App\User::select('*')
+->where('id',$encomenda->idCliente)
+->first();
+
+$produto = App\Produto::select('nome')
+->where('id',$encomenda->idProduto)
+->first();
 
 
-          <div class="input-field">
-            <input type="number" step="0.01" min="0" name="valor" id="valor">
-            <label for="valor" style="font-family: sans-serif;">Valor</label>
-          </div>
+?>
 
-          <div class="file-field  input-field">
-            <div class="btn indigo brown lighten-1">
-              <span  style="font-family: sans-serif;">Selecionar imagem</span>
-              <input type="file" name="imagem">
-            </div>
+   
+      <tbody>        
+          <tr>
+            <td>{{ $cliente->name }}</td>
+            <td>{{ $cliente->telefone }}</td>
+            <td> {{$produto->nome}} </td>
+            <td>{{$encomenda->quantidade }}</td>
+            <td>{{$encomenda->valor}}</td>
+            <td>{{$encomenda->valor*$encomenda->quantidade}}</td>
+            <td>
+            <form action="{{ route('encomenda.atualizar') }}" method="post" name="form_deletar">
+            {{ csrf_field() }}
+            <input type="hidden" name="idCliente" value="{{$encomenda->idCliente}}">
+            <input type="hidden" name="idProduto" value="{{$encomenda->idProduto}}">
 
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
-              </div>
-          </div>
+            <button id="btn-deletar" class="waves-effect waves-light btn green">Finalizar</button>
+            </form>
+            </td>
+          </tr>
+
+    @endforeach
+
+    
+    </tbody>
+    </table>
 
 
-            <div class="switch">
-                <p><span  style="font-family: sans-serif;">Disponível</span></p>
-                <label style="font-family: sans-serif;">
-                  Off
-                  <input type="checkbox" name="disponivel"  style="font-family: sans-serif;">
-                  <span class="lever" ></span>
-                  On
-                </label>
-            </div>
-          </div>
+    </div>
 
-          <button class="btn brown lighten-1" style="margin-top: 10px;">Atualizar</button>
-  </form>
-</div>
 
-</div>
 
+
+
+
+
+
+
+<br><br><br><br>
 
 
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\Encomenda;
 
 class adminController extends Controller
 {
@@ -17,7 +18,11 @@ class adminController extends Controller
       return redirect()->route('site.index');
     }
     else
-    return view('admin.adminTela',compact('user'));
+    {
+      $encomendas = Encomenda::select("*")->orderBy('created_at','ASC')->where('situacao','aberto')->get();
+      return view('admin.adminTela',compact('user','encomendas'));
+
+    }
   }
 
 

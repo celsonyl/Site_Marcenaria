@@ -8,6 +8,7 @@ use App\Carrinho;
 use App\Encomenda;
 use App\Produto;
 use Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\User;
 
 class encomendaController extends Controller
@@ -81,6 +82,25 @@ class encomendaController extends Controller
     public function remover()
     {
 
+
+    }
+
+
+
+
+
+    public function atualizar(Request $req)
+    {
+      $dados = $req->all();
+
+      Encomenda::where('idCliente',$dados['idCliente'])
+      ->where('idProduto',$dados['idProduto'])
+      ->update([
+        'situacao' => 'finalizado',
+      ]);
+
+      Alert::success('Status atualizado com sucesso!');
+      return redirect()->back();
 
     }
 }
