@@ -25,7 +25,7 @@ public function index(Request $req){
     if($req->hasFile('imagem'))
     {
 
-      $allowedfileExtension=['jpg','png'];
+      $allowedfileExtension=['jpg','png','jpeg'];
       $imagem = $req->file('imagem');
       $filename = $imagem->getClientOriginalName();
       $extension = $imagem->getClientOriginalExtension();

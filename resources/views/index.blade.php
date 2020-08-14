@@ -27,17 +27,17 @@
     @foreach ($produtos as $produto)
 
 
-    <div class="card small" style="float:left;margin-left:20px; margin-top:30px;">
+    <div class="card small" style="float:left;margin-left:20px; margin-top:50px;">
       <div class="card">
         <div class="card-image">
           <img src="{{$produto->foto}}" id="cards">
-          <span class="card-title">Nome: {{$produto->nome}}</span>
+          <span class="card-title" style="color: black;">Nome: {{$produto->nome}}</span>
         </div>
         <div class="card-content">
           <p>Descrição: {{$produto->descricao}}</p>
+          <p>Valor: {{$produto->valor}}</p>
         </div>
         <div class="card-content">
-
           <p>Valor: {{$produto->valor}}</p>
         </div>
         <div class="card-action">
